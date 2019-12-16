@@ -75,6 +75,10 @@ function initMap() {
         map.setCenter(pos);
 
         /* TODO: Step 3B2, Call the Places Nearby Search */
+
+        getNearbyPlaces(pos);
+
+
     }, () => {
         // Browser supports geolocation, but user has denied permission
         handleLocationError(true, infoWindow);
@@ -103,6 +107,8 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
     currentInfoWindow = infoWindow;
 
     /* TODO: Step 3B3, Call the Places Nearby Search */
+    getNearbyPlaces(pos);
+
 }
 // Perform a Places Nearby Search Request
 function getNearbyPlaces(position) {
@@ -123,6 +129,29 @@ function nearbyCallback(results, status) {
     }
 }
 
+/* TODO: Step 3C, Generate markers for search results */
+// Set markers at the location of each place result
+function createMarkers(places) {
+    places.forEach(place => {
+    let marker = new google.maps.Marker({
+        position: place.geometry.location,
+        map: map,
+        title: place.name
+    });
+
+    /* TODO: Step 4B: Add click listeners to the markers */
+
+    // Adjust the map bounds to include the location of this marker
+    bounds.extend(place.geometry.location);
+    });
+    /* Once all the markers have been placed, adjust the bounds of the map to
+    * show all the markers within the visible area. */
+    map.fitBounds(bounds);
+}
+
+/* TODO: Step 4C: Show place details in an info window */
+
+
 /* END TODO: Step 2, Geolocate your user */
 /* TODO: Step 3B1, Call the Places Nearby Search */
     /* END TODO: Step 2, Geolocate your user */
@@ -130,7 +159,7 @@ function nearbyCallback(results, status) {
 
 <!-- TODO: Step 1C, Get an API key -->
 <!-- TODO: Step 3A, Load the Places Library -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMFfXEW_uuPKxsV4rZV1r9xos1ItO_Bis&callback=initMap">
 </script>
 
 </body>
