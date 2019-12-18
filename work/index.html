@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Starbucks Finder</title>
+  <title>School Finder</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <style>
@@ -156,7 +156,7 @@ function getNearbyPlaces(position) {
     let request = {
     location: position,
     rankBy: google.maps.places.RankBy.DISTANCE,
-    keyword: 'starbucks'
+    keyword: 'schools'
     };
 
     service = new google.maps.places.PlacesService(map);
