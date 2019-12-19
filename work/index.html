@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>School Finder</title>
+  <title>school Finder</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <style>
@@ -274,6 +274,20 @@ if (placeResult.photos != null) {
     rating.classList.add('details');
     rating.textContent = `Rating: ${placeResult.rating} \u272e`;
     infoPane.appendChild(rating);
+
+        if (placeResult.rating > 4){
+            let verbal_rating = document.createElement('p')
+            verbal_rating.textContent = 'amazing';
+            verbal_rating.classList.add('vb');
+            infoPane.appendChild(verbal_rating)
+        }
+        else if (placeResult.rating < 3){
+            let verbal_rating = document.createElement('p')
+            verbal_rating.textContent = 'horrible';
+            verbal_rating.classList.add('vb');
+            infoPane.appendChild(verbal_rating)
+        }
+
     }
     let address = document.createElement('p');
     address.classList.add('details');
@@ -302,10 +316,10 @@ if (placeResult.photos != null) {
 <!-- TODO: Step 1C, Get an API key -->
 <!-- TODO: Step 3A, Load the Places Library -->
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMFfXEW_uuPKxsV4rZV1r9xos1ItO_Bis&libraries=places&callback=initMap">
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMFfXEW_uuPKxsV4rZV1r9xos1ItO_Bis&callback=initMap">
 </script>
 
 </body>
